@@ -3,6 +3,8 @@
        name="ur5" >
 
   <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+  <xacro:arg name="xyz" default="0 0 0" />
+  <xacro:arg name="rpy" default="0 0 0" />
 
   <!-- common stuff -->
   <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
@@ -24,9 +26,9 @@
   <link name="world" />
 
   <joint name="world_joint" type="fixed">
+    <origin xyz="$(arg xyz)" rpy="$(arg rpy)" />
     <parent link="world" />
     <child link = "base_link" />
-    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 
 </robot>
