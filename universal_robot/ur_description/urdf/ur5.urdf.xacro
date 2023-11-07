@@ -87,7 +87,7 @@
     <xacro:property name="wrist_radius" value="0.045" />      <!-- manually measured -->
 
 
-    <link name="${prefix}base_link" >
+    <link name="ur5_base_link" >
       <visual>
         <geometry>
           <mesh filename="package://ur_description/meshes/ur5/visual/base.dae" />
@@ -107,7 +107,7 @@
     </link>
 
     <joint name="${prefix}shoulder_pan_joint" type="revolute">
-      <parent link="${prefix}base_link" />
+      <parent link="ur5_base_link" />
       <child link = "${prefix}shoulder_link" />
       <origin xyz="0.0 0.0 ${shoulder_height}" rpy="0.0 0.0 0.0" />
       <axis xyz="0 0 1" />
@@ -360,13 +360,13 @@
 
     <!-- ROS base_link to UR 'Base' Coordinates transform -->
     <link name="${prefix}base"/>
-    <joint name="${prefix}base_link-base_fixed_joint" type="fixed">
+    <joint name="ur5_base_link-base_fixed_joint" type="fixed">
       <!-- NOTE: this rotation is only needed as long as base_link itself is
                  not corrected wrt the real robot (ie: rotated over 180
                  degrees)
       -->
       <origin xyz="0 0 0" rpy="0 0 ${-pi}"/>
-      <parent link="${prefix}base_link"/>
+      <parent link="ur5_base_link"/>
       <child link="${prefix}base"/>
     </joint>
 
