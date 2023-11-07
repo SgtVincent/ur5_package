@@ -4,7 +4,7 @@
 
   <xacro:include filename="$(find robotiq_description)/urdf/robotiq_85_gripper.transmission.xacro" />
   
-  <xacro:macro name="robotiq_85_gripper" params="prefix parent *origin">
+  <xacro:macro name="robotiq_85_gripper" params="prefix parent *origin tcp_xyz:='0.15 0 0' tcp_rpy:='0 0 0'">
 
     <joint name="${prefix}robotiq_85_base_joint" type="fixed">
       <parent link="${parent}"/>
@@ -36,7 +36,7 @@
     <link name="${prefix}ur5_gripper_tcp" />
 
     <joint name="${prefix}ur5_gripper_tcp_joint" type="fixed">
-      <origin xyz="0.15 0 0.0" rpy="0 0 0" />
+      <origin xyz="${tcp_xyz}" rpy="${tcp_rpy}" />
       <parent link="${prefix}robotiq_85_base_link"/>
       <child link="${prefix}ur5_gripper_tcp"/>
     </joint>
