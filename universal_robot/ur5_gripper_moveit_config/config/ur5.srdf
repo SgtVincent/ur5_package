@@ -40,7 +40,7 @@
 
     <end_effector name="robotiq_gripper" parent_link="ee_link" group="gripper" parent_group="ur5_arm"/>
     <!--VIRTUAL JOINT: Purpose: this element defines a virtual joint between a robot link and an external frame of reference (considered fixed with respect to the robot)-->
-    <virtual_joint name="Virtual Joints" type="fixed" parent_frame="world" child_link="ur5_base_link"/>
+    <!-- <virtual_joint name="Virtual Joints" type="fixed" parent_frame="world" child_link="ur5_base_link"/> -->
     <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
     <passive_joint name="robotiq_85_left_inner_knuckle_joint"/>
     <passive_joint name="robotiq_85_left_finger_tip_joint"/>
